@@ -1,0 +1,8 @@
+*.o
+*.d
+*.pass
+main
+file_test
+cache
+misc
+user_key.txt
