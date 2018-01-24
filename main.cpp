@@ -167,11 +167,10 @@ static vector<MemberId> extractMemberIds(const string &members_string)
 {
   Json::Value root_value = parseJson(members_string);
   const Json::Value &results_json = root_value["results"];
-  Json::ArrayIndex n_members = results_json.size();
   vector<MemberId> member_ids;
 
-  for (Json::ArrayIndex i=0; i!=n_members; ++i) {
-    MemberId member_id = asMemberId(results_json[i]["id"]);
+  for (const Json::Value &result_json : results_json) {
+    MemberId member_id = asMemberId(result_json["id"]);
     member_ids.push_back(member_id);
   }
 
